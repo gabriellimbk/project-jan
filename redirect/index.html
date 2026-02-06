@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas Redirect Tool Demo</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body data-target-url="http://localhost:3000">
+    <div class="container">
+        <header>
+            <h1>Canvas Redirect Tool</h1>
+            <p class="subtitle">Detecting LTI Variable Substitutions</p>
+        </header>
+
+        <section class="card">
+            <h2>Redirect Status</h2>
+            <div class="input-group">
+                <label for="target-field">Detected User ID</label>
+                <input type="text" id="target-field" placeholder="Waiting for parameters..." readonly>
+                <p class="hint">If a user ID is detected, you will be redirected to the app automatically.</p>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>Detected Parameters</h2>
+            <div id="param-list" class="param-list">
+                <p class="empty-msg">No parameters detected yet. Try adding <code>?user_id=123</code> to the URL.</p>
+            </div>
+        </section>
+
+        <section class="instructions">
+            <h3>How to use with Canvas</h3>
+            <ol>
+                <li>In Canvas, go to <strong>Settings > Apps</strong>.</li>
+                <li>Search for and add the <strong>Redirect Tool</strong>.</li>
+                <li>Enter the URL of this page.</li>
+                <li>In the "Custom Fields" or LTI setup, use substitutions like:
+                    <code>?id=$Canvas.user.id</code> or <code>?user_id=$Canvas.user.id</code>
+                </li>
+                <li>Update the <code>data-target-url</code> in this file to your app URL.</li>
+            </ol>
+        </section>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
